@@ -1,0 +1,32 @@
+const express = require("express");
+const router = express.Router();
+const userController = require("../controller/user.controller")
+const { body ,validationResult} = require("express-validator")
+
+
+
+router.get("/", (req, res) => {
+
+
+    res.send("Hello gyus ")
+
+
+})
+router.post("/register", [
+
+    body("email").isEmail().withMessage("Pease enter a valide email"),
+    body("password").isLength({min:8}).withMessage("Password must required 8 digit"),
+    body("fullname.firstname").isLength({min:3}).withMessage("The first name is at least 3 characters")
+    
+
+
+
+], userController.register)
+
+
+
+
+
+
+
+module.exports = router;
