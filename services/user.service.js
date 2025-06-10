@@ -13,23 +13,21 @@ module.exports.createUser = async function ({
     }
 
 
-        try{
+    // try {
 
-            const user = await userModel.create({
-                fullname:{
-                    firstname,
-                    lastname   
-                },email,password
-            })
-            
-       
-        }catch(e) {
-            console.log("The data are not creted something went wrong");
-            // console.log(e);
-        }
+    const user = await userModel.create({
+        fullname: {
+            firstname,
+            lastname
+        }, email, password
+    })
 
 
-    console.log("Welcome Manish you are at the service functionality");
+
+
+
+
+    return user;
 
 
 }

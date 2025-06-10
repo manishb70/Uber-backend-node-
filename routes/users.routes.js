@@ -21,11 +21,14 @@ router.post("/register", [
 
 
 
-], userController.register)
+], userController.registerUser)
 
 
-
-
+router.post("/login",[
+    body("email").isLength({min:6}).withMessage("Email must be 5 characters"),
+    body("password").isLength({min:6}).withMessage("Password must be 8 characters")
+    
+],userController.login)
 
 
 

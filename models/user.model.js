@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-
+const dotenv = require("dotenv")
+dotenv.config();
 
 const userSchema = new mongoose.Schema({
     fullname: {
@@ -33,23 +34,20 @@ const userSchema = new mongoose.Schema({
 
 
 
-userSchema.methods.genereateAuthToken = function () {
-
-    const token = jwt.sign({ _id: this._id }, process.env.JWT_SECRET)
-    return token
-}
-
-
+userSchema.methods.generateAuthToken = async function () {
+    const token = await jwt.sign({ _id: this._id }, process.env.JWT_SECRET);
+    return token;
+};  
 
 
 
 
 userSchema.methods.comparePassword = function (password) {
-    return bcrypt.compare(password, this._id);
+    return bcrypt.compare(password, this.password);
 
 }
 
-userSchema.methods.hashPassword = async function (password) {
+userSchema.statics.hashPassword = async function (password) {
 
     return await bcrypt.hash(password, 10);
 
