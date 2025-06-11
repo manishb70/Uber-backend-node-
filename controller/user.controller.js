@@ -2,6 +2,8 @@ const { validationResult } = require("express-validator")
 const userModel = require("../models/user.model")
 
 const userService = require("../services/user.service")
+const blackListTokenModel = require("../models/blackListToken.model")
+
 
 
 
@@ -61,27 +63,48 @@ module.exports.login = async function (req, res, next) {
         })
     }
 
-    const {email,password} = req.body;
-    const user = await userModel.findOne({email}).select('+password');
-    if(!user){
+    const { email, password } = req.body;
+    const user = await userModel.findOne({ email }).select('+password');
+    if (!user) {
         res.send("Login failed")
-    }       
+    }
 
-    const comparePsd =  await user.comparePassword(password); 
+    const comparePsd = await user.comparePassword(password);
 
-    if(!comparePsd){
+    if (!comparePsd) {
         res.send("Password dosn't match")
-    }   
+    }
 
     const token = await user.generateAuthToken();
-    
-    res.cookie("token",token)
+
+    res.cookie("token", token)
     res.status(200).json({
-        user,token
+        user, token
     })
-    
+
 
     // res.send("Welcome")
+
+
+
+
+}
+
+
+
+module.exports.userProfile = async function (req, res, next) {
+
+
+
+    console.log("This hello from the controller function");
+
+    console.log(req.user);
+    res.send(req.user)
+
+
+
+
+
 
 
 
@@ -91,5 +114,20 @@ module.exports.login = async function (req, res, next) {
 
 
 
+module.exports.logOutUser=async function (req,res,next) {
+
+    
+    const token = req.cookies.token || req.headers.authorization?.split(" ")[0];
+
+    res.clearCookie('token');
+
+
+    blackListTokenModel.create({token})
+
+    res.status(200).json({message:"Logged out"})
+
+
+    
+}
 
 
