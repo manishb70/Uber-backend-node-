@@ -20,7 +20,7 @@ module.exports.createCaptain = async function (firstname, lastname, password, em
         fullname: {
             firstname, lastname
 
-        }, email, password, vehicle: {
+        }, email, password, vehicle: {  
 
             color, plate, capacity, vehicleType
         }
