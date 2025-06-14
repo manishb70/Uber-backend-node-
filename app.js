@@ -18,6 +18,7 @@ app.use(cookieParser())
 connectToDb();
 
 
+
 app.use("/users", users)
 app.use("/captain",captain)
 
