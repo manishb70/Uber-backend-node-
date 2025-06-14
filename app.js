@@ -7,6 +7,7 @@ const cors = require("cors")
 const connectToDb = require("./db/db.js")
 const users = require("./routes/users.routes.js")
 const cookieParser = require("cookie-parser")
+const captain = require("./routes/captain.routes.js")
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -18,7 +19,7 @@ connectToDb();
 
 
 app.use("/users", users)
-
+app.use("/captain",captain)
 
 
 app.get("/", (req, res) => {
