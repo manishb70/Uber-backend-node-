@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - Uber Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            /* Gucci-inspired stripes background */
+            background: repeating-linear-gradient(
+                135deg,
+                #b38b59 0 40px,
+                #fff 40px 80px,
+                #e4252a 80px 120px,
+                #fff 120px 160px,
+                #1c3c2b 160px 200px,
+                #fff 200px 240px
+            );
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-md bg-white/95 rounded-2xl shadow-2xl p-8 border-4 border-[#b38b59]">
+        <div class="flex flex-col items-center mb-6">
+            <!-- Gucci-inspired logo (double G) -->
+            <svg class="w-16 h-16" viewBox="0 0 64 64" fill="none">
+                <circle cx="32" cy="32" r="30" stroke="#b38b59" stroke-width="4" fill="#fff"/>
+                <path d="M24 32a8 8 0 1 1 16 0" stroke="#1c3c2b" stroke-width="3" fill="none"/>
+                <path d="M40 32a8 8 0 1 1-16 0" stroke="#e4252a" stroke-width="3" fill="none"/>
+            </svg>
+            <h2 class="text-3xl font-bold text-[#1c3c2b] mt-2 tracking-wide" style="font-family:serif;">Gucci Login</h2>
+        </div>
+        <form class="space-y-6">
+            <div>
+                <label class="block text-[#b38b59] font-semibold mb-1" for="email">Email</label>
+                <input id="email" name="email" type="email" required class="w-full px-4 py-2 border border-[#b38b59] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e4252a] transition bg-[#f9f6f2]" placeholder="you@email.com">
+            </div>
+            <div>
+                <label class="block text-[#b38b59] font-semibold mb-1" for="password">Password</label>
+                <input id="password" name="password" type="password" required class="w-full px-4 py-2 border border-[#b38b59] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c3c2b] transition bg-[#f9f6f2]" placeholder="********">
+            </div>
+            <button type="submit" class="w-full py-2 px-4 bg-gradient-to-r from-[#e4252a] via-[#b38b59] to-[#1c3c2b] hover:from-[#b38b59] hover:to-[#e4252a] text-white font-bold rounded-lg shadow-lg transition transform hover:-translate-y-1 hover:scale-105 duration-300 tracking-wider">
+                Login
+            </button>
+        </form>
+        <p class="mt-6 text-center text-[#1c3c2b]">
+            Don't have an account?
+            <a href="#" class="text-[#e4252a] hover:underline font-semibold">Sign up</a>
+        </p>
+    </div>
+</body>
+</html>

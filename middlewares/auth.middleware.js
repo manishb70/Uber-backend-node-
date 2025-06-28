@@ -24,11 +24,11 @@ module.exports.authUser = async function (req, res, next) {
 
 
     if (!isBlacklist) {
-        res.status(401).json({ message: "unautharized" })
+        return res.status(401).json({ message: "unautharized" })
     }
 
     if (!token) {
-        res.status(401).json({ message: "unautharized" })
+        return res.status(401).json({ message: "unautharized" })
     }
 
 
@@ -45,7 +45,7 @@ module.exports.authUser = async function (req, res, next) {
 
 
         if (!user) {
-            res.status(401).json({ message: "unautharized" })
+            return res.status(401).json({ message: "unautharized" })
         }
 
         console.log(user);
@@ -63,15 +63,8 @@ module.exports.authUser = async function (req, res, next) {
     } catch (e) {
         console.log(e);
         console.log("This the error from over server ");
-        res.status(500).json({ "Message": "User not verifyed please login again" })
+      return  res.status(500).json({ "Message": "User not verifyed please login again" })
     }
-
-
-
-
-
-
-
 
 
 
