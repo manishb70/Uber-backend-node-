@@ -58,7 +58,7 @@ module.exports.login = async function (req, res, next) {
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return res.status(400).json({
+        return res.status(401).json({
             errors: errors.errors
         })
     }
@@ -66,13 +66,27 @@ module.exports.login = async function (req, res, next) {
     const { email, password } = req.body;
     const user = await userModel.findOne({ email }).select('+password');
     if (!user) {
-        res.send("Login failed")
+
+
+        res.status(401).json({
+            success: "false",
+            message: "Invalid creadentials"
+        })
+
+
     }
 
     const comparePsd = await user.comparePassword(password);
 
     if (!comparePsd) {
-        res.send("Password dosn't match")
+
+
+        res.status(401).json({
+            success: "false",
+            message: "Invalid creadentials"
+        })
+
+
     }
 
     const token = await user.generateAuthToken();
@@ -114,20 +128,20 @@ module.exports.userProfile = async function (req, res, next) {
 
 
 
-module.exports.logOutUser=async function (req,res,next) {
+module.exports.logOutUser = async function (req, res, next) {
 
-    
+
     const token = req.cookies.token || req.headers.authorization?.split(" ")[0];
 
     res.clearCookie('token');
 
 
-   await blackListTokenModel.create({token})
+    await blackListTokenModel.create({ token })
 
-    res.status(200).json({message:"Logged out"})
+    res.status(200).json({ message: "Logged out" })
 
 
-    
+
 }
 
 

@@ -80,7 +80,7 @@ module.exports.loginCaptain = async function (req, res, next) {
     res.cookie("token",token)
 
 
-res.status(200).json({token,captain})
+res.status(201).json({token,captain})
 
 
 

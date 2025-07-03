@@ -15,7 +15,7 @@ const blackListTokenModel = require("../models/blackListToken.model");
 module.exports.authUser = async function (req, res, next) {
 
 
-    const token = req.cookies.token || req.headers.authorization?.split(" ")[0]
+    const token = req.cookies.token || req.headers.authorization?.split(" ")[1]
 
 
     const isBlacklist = blackListTokenModel.find({ token })
@@ -76,7 +76,7 @@ module.exports.authUser = async function (req, res, next) {
 module.exports.authCaptain = async function (req, res, next) {
 
 
-    const token = req.cookies.token || req.headers.authorization?.split(" ")[0]
+    const token = req.cookies.token || req.headers.authorization?.split(" ")[1]
 
 
     const isBlacklist = await blackListTokenModel.find({ token })
@@ -99,7 +99,9 @@ module.exports.authCaptain = async function (req, res, next) {
 
     try {
 
-        console.log("this is cgfheiofjeiofjeoi");
+        console.log("Token is passed");
+
+        console.log("Token",token);
 
         const userId = jwt.verify(token, process.env.JWT_SECRET)
         const user = await captainModel.findById(userId._id)

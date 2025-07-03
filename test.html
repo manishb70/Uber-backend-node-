@@ -1,72 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Uber Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- For icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Demo Login - GeeksforGeeks</title>
 </head>
-<body class="bg-gradient-to-br from-gray-900 to-gray-800 text-white font-sans">
-    <header class="bg-black shadow-md py-6 text-center">
-        <h1 class="text-4xl font-bold tracking-wide">Uber</h1>
-        <nav class="mt-3">
-            <a href="#" class="mx-4 text-white font-medium hover:text-cyan-400 transition">Home</a>
-            <a href="#" class="mx-4 text-white font-medium hover:text-cyan-400 transition">Ride</a>
-            <a href="#" class="mx-4 text-white font-medium hover:text-cyan-400 transition">Drive</a>
-            <a href="#" class="mx-4 text-white font-medium hover:text-cyan-400 transition">About</a>
-            <a href="#" class="mx-4 text-white font-medium hover:text-cyan-400 transition">Contact</a>
-        </nav>
-    </header>
-    <section class="flex flex-col items-center justify-center min-h-[60vh] text-center px-5 py-10">
-        <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-cyan-400">Get there. Your day belongs to you.</h2>
-        <p class="text-lg md:text-xl mb-7 max-w-xl text-gray-200">Request a ride, hop in, and go. Uber connects you to reliable rides in minutes, anytime and anywhere. Experience the convenience and safety of modern transportation.</p>
-        <button class="bg-cyan-400 hover:bg-cyan-600 text-white font-bold py-3 px-10 rounded-full shadow-lg transition">Get Started</button>
-    </section>
-    <section class="flex flex-wrap justify-center gap-8 px-5 py-12 bg-gray-900/90">
-        <div class="bg-gray-800 rounded-xl shadow-lg p-8 w-72 text-center hover:scale-105 hover:shadow-2xl transition">
-            <i class="fas fa-car text-4xl text-cyan-400 mb-4"></i>
-            <h3 class="text-xl font-semibold text-cyan-400 mb-2">Fast & Reliable</h3>
-            <p class="text-gray-300">Get picked up in minutes and reach your destination quickly with our vast network of drivers.</p>
-        </div>
-        <div class="bg-gray-800 rounded-xl shadow-lg p-8 w-72 text-center hover:scale-105 hover:shadow-2xl transition">
-            <i class="fas fa-shield-alt text-4xl text-cyan-400 mb-4"></i>
-            <h3 class="text-xl font-semibold text-cyan-400 mb-2">Safety First</h3>
-            <p class="text-gray-300">Your safety is our priority. Enjoy features like driver profiles, trip tracking, and 24/7 support.</p>
-        </div>
-        <div class="bg-gray-800 rounded-xl shadow-lg p-8 w-72 text-center hover:scale-105 hover:shadow-2xl transition">
-            <i class="fas fa-dollar-sign text-4xl text-cyan-400 mb-4"></i>
-            <h3 class="text-xl font-semibold text-cyan-400 mb-2">Affordable Rides</h3>
-            <p class="text-gray-300">Transparent pricing and multiple ride options to fit your budget, anytime you need a ride.</p>
-        </div>
-    </section>
-    <section class="bg-gray-800 py-12 px-5 text-center">
-        <h2 class="text-2xl md:text-3xl text-cyan-400 font-semibold mb-4">About Uber</h2>
-        <p class="max-w-2xl mx-auto text-gray-300 text-lg">
-            Uber is committed to making transportation as reliable as running water, everywhere, for everyone. Whether you’re heading to work, the airport, or out with friends, Uber gets you there safely and comfortably. Join millions of riders and drivers who trust Uber every day.
-        </p>
-    </section>
-    <section class="bg-gray-900 py-12 px-5 text-center">
-        <h2 class="text-2xl md:text-3xl text-cyan-400 font-semibold mb-6">What Our Riders Say</h2>
-        <div class="flex flex-wrap justify-center gap-8">
-            <div class="bg-gray-800 rounded-lg p-6 w-80 text-gray-100 shadow-md">
-                <p class="italic mb-3">"Uber makes my daily commute so much easier and stress-free. The drivers are always friendly!"</p>
-                <span class="font-bold text-cyan-400">- Priya S.</span>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-6 w-80 text-gray-100 shadow-md">
-                <p class="italic mb-3">"I love how quickly I can get a ride, even late at night. The app is super easy to use."</p>
-                <span class="font-bold text-cyan-400">- Rahul M.</span>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-6 w-80 text-gray-100 shadow-md">
-                <p class="italic mb-3">"Affordable, safe, and reliable. Uber is my go-to for getting around the city."</p>
-                <span class="font-bold text-cyan-400">- Anjali K.</span>
-            </div>
-        </div>
-    </section>
-    <footer class="bg-black text-gray-400 text-center py-5 text-base tracking-wide">
-        &copy; 2024 Uber. All rights reserved.
-    </footer>
+<style>
+    div {
+        height: 600px;
+        width: 550px;
+        margin: auto;
+        /* border: 2px solid black; */
+        text-align: center;
+        margin-top: 10%;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        border-radius: 4px;
+        padding-top: 10px;
+    }
+
+    h1 {
+        color: rgb(11, 180, 11);
+        margin-top: 40px;
+        height: 45px;
+        font-size: 46px;
+
+
+    }
+
+    input {
+
+        height: 9%;
+        width: 76%;
+        border: none;
+        border-radius: 4px;
+        border: 1px solid rgb(214 206 206);
+        padding-left: 20px;
+
+    }
+
+    label {
+        display: block;
+        text-align: left;
+        width: 80%;
+        margin: auto;
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+    button {
+
+        margin-top: 40px;
+        width: 80%;
+        height: 10%;
+        background-color: rgb(11, 180, 11);
+        border: none;
+        border-radius: 4px;
+        font-weight: lighter;
+
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    form {
+        height: 100%;
+        width: 100%;
+    }
+
+    button:hover {
+        cursor: pointer;
+
+        background-color: darkgreen;
+    }
+</style>
+
+<body>
+    <div class="maingeeksforgeeks">
+        <form
+            onsubmit="event.preventDefault(); alert('⚠ This is a demo login form. No credentials are stored or submitted.');">
+            <h1>GeeksforGeeks</h1>
+            <h2>Enter your login credentials</h2>
+
+            <!-- Demo Warning -->
+            <p style="color: red; font-weight: bold; background-color: #ffeaea; padding: 10px; border-radius: 5px;">
+                ⚠ This is a demo form. No data is collected or transmitted. It's for educational purposes only.
+            </p>
+
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" placeholder="Enter your Username">
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" placeholder="Enter your Password">
+
+            <br>
+            <button type="submit">Submit</button>
+
+            <p>Not registered? <a href="#">Create an account</a></p>
+        </form>
+    </div>
 </body>
+
 </html>

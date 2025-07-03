@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 })
 
 
-router.get("/register", [
+router.post("/register", [
     body("fullname.firstname").isLength({ min: 3 }).withMessage("The first name is minimum 3 digit required"),
     body("password").isLength({ min: 3 }).withMessage("The first name is minimum 3 digit required"),
     body("vehicle.color").isLength({ min: 3 }).withMessage("Color mininmum 3 digit is required"),
@@ -22,7 +22,7 @@ router.get("/register", [
 
 ], captainController.registerCaptain)
 
-router.get("/login", [
+router.post("/login", [
 
     body("password").isLength({ min: 3 }).withMessage("The first name is minimum 3 digit required"),
     body("email").isEmail().withMessage("invalid email")
